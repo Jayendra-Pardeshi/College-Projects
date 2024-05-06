@@ -1,0 +1,226 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BookShelf.master.cs"
+    Inherits="The_Bookshelf.BookShelf" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <script src="JavaScript/CopyPaste.js" type="text/javascript"></script>
+    <script src="JavaScript/MasterFormValidation.js" type="text/javascript"></script>
+    <script src="JavaScript/PageBack.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Josefin Sans" , sans-serif;
+        }
+        nav
+        {
+            width: 100%;
+            height: 15vh;
+            background: #343434;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+        }
+        nav .logo
+        {
+            width: 25%;
+            text-align: center;
+            color: #00b894;
+        }
+        
+        nav .menu
+        {
+            width: 35%;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        nav .menu a
+        {
+            width: 25%;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        
+        
+        nav .menu a:hover
+        {
+            color: #00b894;
+        }
+        
+        footer
+        {
+            background: rgba(0, 0, 0);
+            background: #343434;
+            padding-top: 50px;
+        }
+        .container
+        {
+            width: 1140px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .footer-content
+        {
+            width: 33.3%;
+        }
+        h3
+        {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .footer-content p
+        {
+            width: 190px;
+            margin: auto;
+            padding: 7px;
+        }
+        .footer-content ul
+        {
+            text-align: center;
+        }
+        .list
+        {
+            padding: 0;
+        }
+        .list li
+        {
+            width: auto;
+            text-align: center;
+            list-style-type: none;
+            padding: 7px;
+            position: relative;
+        }
+        .list li::before
+        {
+            content: '';
+            position: absolute;
+            transform: translate(-50%,-50%);
+            left: 50%;
+            top: 100%;
+            width: 0;
+            height: 2px;
+            background: #f18930;
+            transition-duration: .5s;
+        }
+        .list li:hover::before
+        {
+            width: 70px;
+        }
+        .social-icons
+        {
+            text-align: center;
+            padding: 0;
+        }
+        .social-icons li
+        {
+            display: inline-block;
+            text-align: center;
+            padding: 5px;
+        }
+        .social-icons i
+        {
+            color: white;
+            font-size: 25px;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        a:hover
+        {
+            color: #f18930;
+        }
+        .bottom-bar
+        {
+            background: #f18930;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 50px;
+        }
+        .bottom-bar p
+        {
+            color: #343434;
+            margin: 0;
+            font-size: 16px;
+            padding: 7px;
+        }
+        .r
+        {
+            border-radius: 30%;
+        }
+        .r:hover
+        {
+            transform: scale(1.3);
+            transition: .6s;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div width="1440px">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <nav>
+              	<div class="logo"><h1 style="font-size: 35px;"> The BookShelf </h1></div>
+                   <div class="menu">
+                      <a href="Home.aspx">Home</a>
+                      <a href="Categories.aspx">gallery</a>
+                      <a href="About_us.aspx">about</a>
+                      <a href="Contact_us.aspx">contact</a>
+                   </div>
+             </nav>
+        </asp:ContentPlaceHolder>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                <footer>
+                   <div class="container">
+                     <div class="footer-content">
+                          <a href="Contact_us.aspx"><h3>Contact Us</h3></a>  
+                            <p>Email:thebookshelf@gmail.com</p>
+                            <p>Phone:+91-9021943772</p>
+                            <p>Address:Jamner 424206</p>
+                      </div>
+                   <div class="footer-content">
+                     <h3>Quick Links</h3>
+                       <ul class="list">
+                          <li><a href="Home.aspx">Home</a></li>
+                          <li><a href="Categories.aspx">Gallery</a></li>
+                          <li><a href="Contact_us.aspx">Contact us</a></li>
+                          <li><a href="Terms_of_use.aspx">Terms & Conditions</a></li>
+                       </ul>
+                    </div>
+                <div class="footer-content">
+                   <h3>Follow Us</h3>
+                      <ul class="social-icons">  
+                         <li><asp:Image ID="Image1" runat="server" Class="r" ImageUrl="~/Images/FB_Logo.png" Width="40px" Height="40px"></asp:Image></li>           
+                         <li><asp:Image ID="Image2" runat="server" Class="r" ImageUrl="~/Images/Linkedin_Logo.png" Width="40px" Height="40px"></asp:Image></li>
+                         <li><asp:Image ID="Image3" runat="server" Class="r" ImageUrl="~/Images/Insta_Logo.png" Width="40px" Height="40px"></asp:Image></li>      
+                      </ul>               
+                  </div>
+               </div>
+            <div class="bottom-bar">
+          <p>&copy; 2024 The BookShelf . All rights reserved</p>
+        </div>
+      </footer>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
